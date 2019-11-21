@@ -1,18 +1,52 @@
-<!doctype html>
-
+<!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="utf-8">
-
-  <title>Guess the number game</title>
-        <meta charset="utf-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1">
-        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
-        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
-        <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
-        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Guess the number game</title>
 </head>
-<body>
-    <script src="js/script.js"></script>
+
+<body >
+
+    <div id="container">
+        <div class = "jumbotron text-center">
+            <h1>Guess The Randomly Generated Number</h1>
+            <p>With our main host Html and JavaScript ES6</p>
+        </div>
+
+
+        <div class = "container">
+            <h2>Random Number Generator</h2>
+        </div>
+
+
+        <div class= "form-group">
+            <label for="user guess" id= "textOutput">Input Your Random Guess Here:</label>
+            <input type="number"  id="inputBox" onchange="compareGuess()"
+            placeholder="Enter User Guess"
+            class="button">
+            <button  type="submit" id= 'submit'class="btn btn-default">Submit Guess</button>
+        </div>
+
+
+        <div class= "score-container">
+            <p>Score: <span id= "score"></span></p>
+            <button  onclick="newGame()" >Reset</button>
+        </div>
+
+        <div class= "panel">
+            <p>Your previous guesses:</p>
+            <p id = "guessLog"></p>
+        </div>
+    </div> 
+        
+
+    <script src="Guess_program.js"></script>
+
+
+
+
 </body>
+
 </html>
