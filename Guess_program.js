@@ -1,8 +1,15 @@
+function newGame(){
+    window.location.reload(true);
+}
+var guesses=0;
+var compGuess;
+var score=0;
 
-function intit({
-    
-})
+function computerGuess(){
+    compGuess = Math.floor(Math.random() * 100 + 1);
+    console.log(compGuess);
+}
+function userGuesses(){
 
-function yourGuess(){
-    var guess1 = document.getElementById("guess").value;
+
 }
