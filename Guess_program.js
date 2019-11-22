@@ -1,41 +1,58 @@
-function newGame(){
-    window.location.reload(true);
+var compGuess;
+var userGuessLog = [];
+var score = 0;
+
+
+
+function newGame() {
+    window.location.reload();
 }
-function compGuess(){
-    compGuess= Math.floor(Math.random() * 100 + 1);
 
+
+    
+        
+function init() {
+    compGuess = Math.floor(Math.random() * 100 + 1);
+    console.log(compGuess);
+}
+        
+
+function compareGuess() {
+    var userGuess =" " + document.getElementById('inputBox').value;
+    // console.log(userGuess);
+    
+    userGuessLog.push(userGuess);
+    // console.log(userGuessLog);
+    document.getElementById('guessLog').innerHTML = userGuessLog;
+
+    score++;
+    document.getElementById('score').innerHTML = score;
+
+
+    if(userGuess > compGuess) {
+            document.getElementById('textOutput').innerHTML = 'Too High';
+            document.getElementById('inputBox').value = "";
+    }
+    else if (userGuess < compGuess){
+        document.getElementById('textOutput').innerHTML = 'Too Low';
+        document.getElementById('inputBox').value = "";
+    }
+    else {
+        document.getElementById('textOutput').innerHTML = 'You Are Correct';
+    }
 }
 
-function checkNumber() {
-    var attempt = document.getElementById("score").value;
-    var userInput = document.getElementById("user input").value;
-    var results = document.getElementById("results");
+function loading(){
+    document.getElementsByClassName('buttonload').innerHtml = 
+    document.getElementById('submit');
 
-    console.log(userInput);
+    if(userGuess != compGuess){
+        setTimeout(onclick('submit')),3000;
+    }
+            
+            
 
-    if(!answer){
-        var answer = generateRandomAnswer();
-        document.getElementById("score").value = answer;
-      }
-    
-      console.log(answer);
-    
-      if (!attempt) {
-        attempt = 0;
-      }
-    
-      if(!validateInput(userInput)){
-         //display an error message
-         msg.innerHTML = "<p class='text-danger'>Number should be 4-digit long</p>";
-         return;
-      }
-      else {
-        msg.innerHTML = "";
-        attempt++;
-        document.getElementById("attempts").value = attempt;
-      }
-
-
-
-
+            
+        
 }
+    
