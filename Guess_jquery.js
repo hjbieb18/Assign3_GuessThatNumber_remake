@@ -2,6 +2,8 @@ var number= Math.floor(Math.random() * 100 + 1);
 number= numberPicker();
 console.log(numberPicker());
 var guess= 0;
+guess= $('#guess-log');
+var score=0;
 var output = "Submit a number by clicking guess!";
 $('#feedback').text(output);
 
@@ -19,23 +21,34 @@ function numberPicker(){
     
 }
 
+
 function guessChecker () {
-    guess= $('#guess').val();
+    guess= parseFloat($('#guess').val());
     output="Submit a number by clicking guess!";
     
+    userGuessLog={};
+    
+
 
     if (guess > number){
         output= "Guess is too high.";
+        $('#guess').val("");
+        
     }
     else if(guess < number){
-        output.on= "That guess is too low.";
+        output= "That guess is too low.";
+        $('#guess').val("");
+        
+
     }
     else if(guess == number){
         output="Correct guess! Click New Game to play again";
     }
     $('#feedback').text(output);
     console.log(guess);
-    $('#guess-log').text(guess);
+    score++;
+    parseFloat($('#guess-log').text(guess));
+    
      
 }
 function newGame() {
