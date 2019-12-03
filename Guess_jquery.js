@@ -1,7 +1,7 @@
 
 console.log(numberPicker());
-var guess= 0;
-var score= 0;
+//var guess= 0;
+//var score= 0;
 var output = "Submit a number by clicking guess!";
 $('#feedback').text(output);
 
@@ -19,13 +19,16 @@ function numberPicker(){
     return number;
     
 }
-
+var guess= 0;
+var score= 0;
+scoreCount= 0;
 
 function guessChecker () {
+    score= scoreCount;
     guess= parseFloat($('#guess').val());
     output="Submit a number by clicking guess!";
-    userGuessLog={};
-    scoreCount = 0;
+    // userGuessLog={};
+    scoreCount = score++;
     score = $('#score-log').html(scoreCount);
     
     if (guess > number){
