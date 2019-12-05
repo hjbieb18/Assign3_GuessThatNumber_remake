@@ -1,7 +1,7 @@
 
 console.log(numberPicker());
 //var guess= 0;
-//var score= 0;
+var score= 0;
 var output = "Submit a number by clicking guess!";
 $('#feedback').text(output);
 
@@ -9,7 +9,8 @@ $('#feedback').text(output);
 
 $(function (){
     $('#guess-button').on('click', guessChecker); 
-    //score= $('#score-log').html(0); 
+    score += 1;
+    scoreCount = score;
     $('#new-game').on('click', newGame);
 });
 
@@ -28,16 +29,18 @@ function guessChecker () {
     guess= parseFloat($('#guess').val());
     output="Submit a number by clicking guess!";
     // userGuessLog={};
-    scoreCount = score++;
+    //scoreCount = score;
     score = $('#score-log').html(scoreCount);
     
     if (guess > number){
         output= "Guess is too high.";
         $('#guess').val("");
-        score= $('#score-log').html(scoreCount + 1);
+        score= $('#score-log').html(scoreCount++);
+        $('#guess-log').push(guess);
     }
     else if(guess < number){
         output= "That guess is too low.";
+        score= $('#score-log').html(scoreCount++);
         $('#guess').val("");
         
         
@@ -62,3 +65,4 @@ function newGame() {
     $('#feedback').text("Thinking of a new number");
 
 }
+
